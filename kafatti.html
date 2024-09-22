@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smrruu ne kanfatti marli </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+        }
+        .btn {
+            position: absolute;
+            transition: transform 0.3s ease; /* Smooth movement */
+        }
+        .btn-outline-danger {
+            left: 50%;
+            top: 50%;
+            transform: translate(-60%, -50%); /* Slight shift to separate from the other button */
+        }
+        .btn-outline-success {
+            left: 50%;  
+            top: 50%;
+            transform: translate(-40%, -50%); /* Slight shift to separate from the other button */
+        }
+    </style>
+</head>
+<body>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXVLTTwYtE3Ak7FKul2DpXJjRLXK1wu1Q6A&s" alt="">
+    <h1>Tu nalayak ahe tedu pan</h1>
+    <img src="https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif" alt="">
+    <h1>Ho smrruuu pan tu yu veles maf kar karan mi tuja asel tr </h1>
+    <a href="./loveship.html" class="btn btn-outline-success">it is last chance Prem karte manun </a>
+    <a href="#" class="btn btn-outline-danger nahi">nahi bhetnar  </a>
+
+    <script>
+        const nahiBtn = document.querySelector('.btn-outline-danger');
+
+        function moveButton(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            const btnRect = nahiBtn.getBoundingClientRect();
+            const offset = 50; // Additional offset to move away
+
+            if (x >= btnRect.left - offset && x <= btnRect.right + offset &&
+                y >= btnRect.top - offset && y <= btnRect.bottom + offset) {
+                
+                let newLeft = Math.random() * (window.innerWidth - btnRect.width);
+                let newTop = Math.random() * (window.innerHeight - btnRect.height);
+
+                // Ensure the button stays within the window
+                newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - btnRect.width));
+                newTop = Math.max(0, Math.min(newTop, window.innerHeight - btnRect.height));
+
+                nahiBtn.style.transform = `translate(${newLeft - window.innerWidth / 2}px, ${newTop - window.innerHeight / 2}px)`;
+            }
+        }
+
+        document.addEventListener('mousemove', moveButton);
+    </script>
+</body>
+</html>
